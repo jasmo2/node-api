@@ -1,14 +1,17 @@
 require('dotenv').config()
 const express = require('express')
+const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+
+const Kitten = require('./Kitten')
 
 const app = express()
 app.use(bodyParser.json())
 
 app.get('/', async (req, res) => {
-  const allKittens = Kitten.find({})
+  const allKittens = await Kitten.find({})
   console.log('allKittens', allKittens)
-  res.json(allKittens)
+  res.status(200).json({ kittens: allKittens })
 })
 
 app.post('/', async (req, res) => {
