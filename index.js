@@ -15,16 +15,17 @@ app.get('/', async (req, res) => {
 })
 
 app.post('/', async (req, res) => {
-  console.log('req.body', req.body)
-  // try {
-  //   const kitten = new Kitten({})
-  //   await kitten.save()
-  //   res.status(200)
-  //   res.json({ ok: 'sucessfully created new kitty' })
-  // } catch (err) {
-  //   res.status(500)
-  //   res.json({ error: `error saving: ${err}` })
-  // }
+  const kittenData = req.body
+  console.log('kittenData', kittenData)
+  try {
+    const kitten = new Kitten(kittenData)
+    await kitten.save()
+    res.status(200)
+    res.json({ ok: 'sucessfully created new kitty' })
+  } catch (err) {
+    res.status(500)
+    res.json({ error: `error saving: ${err}` })
+  }
 })
 
 const port = process.env.PORT || 3000
