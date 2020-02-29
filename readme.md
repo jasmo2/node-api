@@ -12,3 +12,7 @@ Hay varios puntos a tener encuanta cuando se crea un API.
   - POST
   - PUT
   - Delete
+
+## Exercise
+
+crear metodos para actulizar y borrar por ID
