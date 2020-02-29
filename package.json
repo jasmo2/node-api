@@ -1,0 +1,26 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Creating the 1º API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasmo2/node-api.git"
+  },
+  "keywords": [
+    "api",
+    "nodejs"
+  ],
+  "author": "jasmo2",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasmo2/node-api/issues"
+  },
+  "homepage": "https://github.com/jasmo2/node-api#readme",
+  "dependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
