@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/jasmo2/node-api#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
+    "mongoose": "^5.9.2",
     "nodemon": "^2.0.2"
   }
 }
