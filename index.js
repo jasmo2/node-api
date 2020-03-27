@@ -1,32 +1,34 @@
 require('dotenv').config()
 const express = require('express')
-const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 
-const Kitten = require('./Kitten')
+const api = require('./api')
 
 const app = express()
 app.use(bodyParser.json())
 
+/*CRUD*/
+// Create
+// Read
+// Update
+// Delete
+
+app.use('/api', api)
 app.get('/', async (req, res) => {
-  const allKittens = await Kitten.find({})
-  console.log('allKittens', allKittens)
-  res.status(200).json({ kittens: allKittens })
+  res.status(200)
+  res.send(`
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Esto es HTML5</h1>
+</body>
+</html>
+  `)
 })
-
-app.post('/', async (req, res) => {
-  const kittenData = req.body
-  console.log('kittenData', kittenData)
-  try {
-    const kitten = new Kitten(kittenData)
-    await kitten.save()
-    res.status(200)
-    res.json({ ok: 'sucessfully created new kitty' })
-  } catch (err) {
-    res.status(500)
-    res.json({ error: `error saving: ${err}` })
-  }
-})
-
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log('Listening on port ' + port + '...'))
